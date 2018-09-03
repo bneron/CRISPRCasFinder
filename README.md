@@ -16,7 +16,7 @@ A more complete User Manual is available at the following link: https://crisprca
 If you want to try CRISPRCasFinder without installing dependencies,
 The standalone version is also available as singularity container:
 
-[![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/1624)
+[![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/1625)
 
 ## To run the container
  
