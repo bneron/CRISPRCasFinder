@@ -106,10 +106,6 @@ from: ubuntu:xenial
     LC_ALL='C'
     export LC_ALL
 
-%setup
-    mkdir -p ${SINGULARITY_ROOTFS}/usr/local/src/CRISPRCasFinder
-    cp CRISPRCasFinder.singularity.patch ${SINGULARITY_ROOTFS}/usr/local/src/CRISPRCasFinder/
-
 %post
 	export DEBIAN_FRONTEND=noninteractive
 	apt-get update
@@ -298,7 +294,8 @@ from: ubuntu:xenial
     test -d "${crispr_data}" || mkdir "${crispr_data}"
 
     patch CRISPRCasFinder.pl CRISPRCasFinder.patch
-    patch CRISPRCasFinder.pl ../CRISPRCasFinder.singularity.patch
+    #patch CRISPRCasFinder.pl ../CRISPRCasFinder.singularity.patch
+
 
     install -m 0755 CRISPRCasFinder.pl ${prefix}/bin/CRISPRCasFinder
     install -m 0644 supplementary_files/crispr.css ${crispr_data}
@@ -312,10 +309,11 @@ from: ubuntu:xenial
     # use the CasFinder distributed with CRISPRCasFinder
     cas_data="${prefix}/share/macsyfinder/"
     # remove profiles and definitions packaged with macsyfinder
-    rm -Rf "${cas_data}DEF"
-    rm -Rf "${cas_data}profiles"
+    rm -R ${cas_data}DEF/*
+    rm -R ${cas_data}profiles
     # install cas profiles and definition packaged with CRISPRCasFinder
-    cp -r CasFinder-2.0.2 ${cas_data}
+    cp -r CasFinder-2.0.2/definitions/* ${cas_data}/DEF/
+    cp -r CasFinder-2.0.2/profiles ${cas_data}
     cd /
 
 
