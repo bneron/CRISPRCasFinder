@@ -294,8 +294,6 @@ from: ubuntu:xenial
     test -d "${crispr_data}" || mkdir "${crispr_data}"
 
     patch CRISPRCasFinder.pl CRISPRCasFinder.patch
-    #patch CRISPRCasFinder.pl ../CRISPRCasFinder.singularity.patch
-
 
     install -m 0755 CRISPRCasFinder.pl ${prefix}/bin/CRISPRCasFinder
     install -m 0644 supplementary_files/crispr.css ${crispr_data}
